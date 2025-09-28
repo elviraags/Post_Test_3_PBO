@@ -57,6 +57,48 @@ Pada PasienAnak, penggunaan override dengan menambahkan informasi nama orang tua
 
 Pada PasienDewasa, penggunaan override dengan menambahkan informasi pekerjaan pasien. jadi method di subclass tetap memanggil super.tampilkanInfo() untuk menampilkan data umum dari superclass, kemudian menambahkan baris output tambahan khusus untuk pekerjaan.
 
+
+
+## Polymorphism (Overloading) Abstract pada claas pasien 
+
+<img width="1378" height="676" alt="image" src="https://github.com/user-attachments/assets/0846a7f3-d265-4740-b459-e966d8d03504" />
+
+Pasien adalah kelas induk (superclass) yang bersifat abstrak. Karena mendefinisikan umum pasien (punya nama, umur, layanan) tetapi cara menampilkan informasi (tampilkanInfo) bisa berbeda tergantung jenis pasien (anak / dewasa).
+
+
+## Extends Subclass PasienAnak
+
+<img width="1423" height="607" alt="image" src="https://github.com/user-attachments/assets/7cf229df-4006-4327-951b-290d8130d072" />
+
+Bisa lebih dari satu versi method tampilkanInfo, misalnya:
+
+public abstract void tampilkanInfo();         
+public void tampilkanInfo(boolean detail); 
+
+Jadi saat dipanggil, bisa pilih tampilkanInfo() atau tampilkanInfo(true). Saat tampilkanInfo() dipanggil dari variabel bertipe Pasien, maka otomatis menjalankan implementasi yang sesuai dengan objek PasienAnak atau PasienDewasa.
+
+## Extends Subclass PasienDewasa
+
+<img width="1357" height="552" alt="image" src="https://github.com/user-attachments/assets/0e88b164-908e-42a9-9a65-41d7f799ed98" />
+
+PasienAnak adalah turunan (extends) dari Pasien dengan Tambahan atribut khusus yaitu namaOrangTua. Override method tampilkanInfo() supaya selain nama, umur, layanan juga tampil nama orang tua. Overriding PasienAnak menimpa cara tampilkanInfo() dari Pasien.
+
+
+## Interface Class Registrasi 
+
+<img width="1285" height="423" alt="image" src="https://github.com/user-attachments/assets/1029fdcf-6f2c-4f4a-89f1-9479cefafae7" />
+
+PasienDewasa juga turunan dari Pasien. Override method tampilkanInfo() supaya selain info dasar juga menampilkan pekerjaan. Sama seperti PasienAnak. Walau sama-sama Pasien, output informasi berbeda tergantung apakah pasien itu anak atau dewasa.
+
+
+## Implements Interface Class PasienServic
+
+<img width="1381" height="700" alt="image" src="https://github.com/user-attachments/assets/6991daa3-1124-437d-bfd8-b310fa2c7c0c" />
+
+Registrasi adalah interface (kontrak), dengan mendefinisikan satu method wajib yaitu void daftarPasien(Pasien pasien);
+Semua class yang implements Registrasi wajib menyediakan implementasi dari method ini.
+
+
 ## Alur Program
 
 <img width="470" height="342" alt="image" src="https://github.com/user-attachments/assets/f707678e-1835-4dfa-8dd1-b37ae9447edc" />
